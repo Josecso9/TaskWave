@@ -1,0 +1,88 @@
+<div class="dashboard">
+
+  <div class="column">
+    <h3>To Do</h3>
+    <div *ngFor="let card of todoCards" class="card">
+      <h4>{{ card.title }}</h4>
+      <p>{{ card.description }}</p>
+      <div class="buttons">
+        <button (click)="onEdit(card)">Update</button>
+        <button (click)="card._id && onDelete(card._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <h3>Doing</h3>
+    <div *ngFor="let card of doingCards" class="card">
+      <h4>{{ card.title }}</h4>
+      <p>{{ card.description }}</p>
+      <div class="buttons">
+        <button (click)="onEdit(card)">Update</button>
+        <button (click)="card._id && onDelete(card._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <h3>Done</h3>
+    <div *ngFor="let card of doneCards" class="card">
+      <h4>{{ card.title }}</h4>
+      <p>{{ card.description }}</p>
+      <div class="buttons">
+        <button (click)="onEdit(card)">Update</button>
+        <button (click)="card._id && onDelete(card._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="create-card">
+    <h3>Create New Card</h3>
+    <form (ngSubmit)="onSubmit()" #cardForm="ngForm">
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="newCard.title" name="title" required>
+      <div *ngIf="cardForm.submitted && !newCard.title" class="error">Title is required</div>
+
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="newCard.description" name="description" required></textarea>
+      <div *ngIf="cardForm.submitted && !newCard.description" class="error">Description is required</div>
+
+      <label for="status">Status:</label>
+      <select id="status" [(ngModel)]="newCard.status" name="status" required>
+        <option value="to-do">To Do</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+      </select>
+      <div *ngIf="cardForm.submitted && !newCard.status" class="error">Status is required</div>
+
+      <button type="submit" [disabled]="isLoading">Create Card</button>
+    </form>
+  </div>
+
+  <div *ngIf="editingCard" class="edit-card">
+    <h3>Edit Card</h3>
+    <form (ngSubmit)="onUpdate()" #editCardForm="ngForm">
+      <label for="editTitle">Title:</label>
+      <input type="text" id="editTitle" [(ngModel)]="editingCard.title" name="editTitle" required>
+      <div *ngIf="editCardForm.submitted && !editingCard.title" class="error">Title is required</div>
+
+      <label for="editDescription">Description:</label>
+      <textarea id="editDescription" [(ngModel)]="editingCard.description" name="editDescription" required></textarea>
+      <div *ngIf="editCardForm.submitted && !editingCard.description" class="error">Description is required</div>
+
+      <label for="editStatus">Status:</label>
+      <select id="editStatus" [(ngModel)]="editingCard.status" name="editStatus" required>
+        <option value="to-do">To Do</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+      </select>
+      <div *ngIf="editCardForm.submitted && !editingCard.status" class="error">Status is required</div>
+
+      <button type="submit" [disabled]="isLoading">Update Card</button>
+    </form>
+  </div>
+
+  <div *ngIf="isLoading" class="spinner">
+    Loading...
+  </div>
+</div>

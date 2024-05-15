@@ -1,0 +1,216 @@
+/* Animación del gradiente de fondo */
+@keyframes gradientAnimation {
+    0% { background: #3A7BD5; }
+    50% { background: #0F2027; }
+    100% { background: #3A7BD5; }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #fff;
+}
+
+h3 {
+    color: #fff;
+    text-align: center;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+    background: #0F2027; /* Fondo para la sección del dashboard */
+    animation: gradientAnimation 15s ease infinite;
+    gap: 20px; /* Espaciado entre las columnas */
+}
+
+.column {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado entre las tarjetas */
+}
+
+.column h3 {
+    margin-top: 0;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.create-card {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 30%; /* Alineación con las columnas */
+}
+
+.create-card h3 {
+    color: #fff;
+    text-align: center;
+}
+
+.create-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.create-card label {
+    color: #fff;
+}
+
+.create-card input,
+.create-card textarea,
+.create-card select,
+.create-card button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-card input,
+.create-card textarea,
+.create-card select {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+.create-card button {
+    background: #3A7BD5;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.create-card button:hover {
+    background: #0F2027;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.spinner {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h4, .card p {
+    margin: 0;
+    padding: 0;
+}
+
+.card .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.card button {
+    background-color: #3A7BD5;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #0F2027;
+}
+
+/* Otros estilos */
+
+.create-card, .edit-card {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 30%; /* Alineación con las columnas */
+    margin-top: 20px;
+}
+
+.create-card h3, .edit-card h3 {
+    color: #fff;
+    text-align: center;
+}
+
+.create-card form, .edit-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.create-card label, .edit-card label {
+    color: #fff;
+}
+
+.create-card input, .edit-card input,
+.create-card textarea, .edit-card textarea,
+.create-card select, .edit-card select,
+.create-card button, .edit-card button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-card input, .edit-card input,
+.create-card textarea, .edit-card textarea,
+.create-card select, .edit-card select {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+.create-card button, .edit-card button {
+    background: #3A7BD5;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.create-card button:hover, .edit-card button:hover {
+    background: #0F2027;
+}
